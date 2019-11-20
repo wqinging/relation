@@ -1,0 +1,20 @@
+server:
+  port: 8000
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: wqing
+    password: Wq_847259
+#    url: jdbc:mysql://localhost:3306/relation?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://134.175.6.66:3306/relation?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: user_central
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:wqing@134.175.6.66:8761/eureka/
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
